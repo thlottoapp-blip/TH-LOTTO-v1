@@ -1,13 +1,63 @@
-node_modules/
-.dist/
-/build/
+# ===================================================
+# TH-LOTTO Monorepo — .gitignore
+# ===================================================
+
+# Environment files — ห้าม commit ขึ้น repo เด็ดขาด
 .env
 .env.local
-.env.*
-.vscode/
-.next/
-out/
+.env.*.local
+**/.env
+**/.env.local
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# Vite cache
+.vite/
+**/.vite/
+
+# Editor & OS files
 .DS_Store
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+Thumbs.db
+.idea/
+.vscode/settings.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+**/coverage/
+.nyc_output/
+
+# Vercel
+.vercel/
+
+# Supabase local dev
+supabase/.temp/
+supabase/seed.sql
+
+# Windsurf/AI editor internal (keep .agents for skills)
+.windsurf/
+.windsurfrules
+
+# Temp files
+*.tmp
+*.temp
