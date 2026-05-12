@@ -1,0 +1,12 @@
+# TH-LOTTO Admin Panel Rules (Auto-loaded)
+
+## MANDATORY: Read these files FIRST
+1. Read DEVELOPMENT_GUIDE.md in User App repo for full system overview
+2. This is the ADMIN PANEL repo (TH-LOTTO-Admin-push)
+
+## Project Structure
+- THIS REPO: thlotto3239-star/TH-LOTTO-Admin-push | branch master | https://th-lotto-admin.vercel.app
+- User App (separate repo): thlotto3239-star/thlotto-premium | branch main | https://th-lotto-app.vercel.app
+
+## Deploy: git push origin master then npx vercel --prod --yes
+## FORBIDDEN: DO NOT push to wrong repo, DO NOT touch User App from here

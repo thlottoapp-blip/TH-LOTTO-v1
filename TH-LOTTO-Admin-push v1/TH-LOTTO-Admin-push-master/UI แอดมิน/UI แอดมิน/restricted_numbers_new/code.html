@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ผู้ดูแลระบบ THLotto - รายการเลขอั้น</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+                    "surface": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary-container": "#80bea6",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#404944",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "outline": "#707974",
+                    "surface-tint": "#2b6954",
+                    "inverse-surface": "#213145",
+                    "primary-container": "#064e3b",
+                    "secondary": "#006c49",
+                    "primary-fixed": "#b0f0d6",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-tertiary-container": "#a8b5ad",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#3b4741",
+                    "on-secondary-fixed-variant": "#005236",
+                    "tertiary": "#25312b",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-primary": "#95d3ba",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#00714d",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002117",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#6cf8bb",
+                    "on-secondary-fixed": "#002113",
+                    "on-tertiary-fixed-variant": "#3e4943",
+                    "primary": "#003527",
+                    "surface-container": "#e5eeff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary-fixed-dim": "#bdcac1",
+                    "outline-variant": "#bfc9c3",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed": "#d9e6dd",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary-fixed": "#131e19"
+            },
+            borderRadius: {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            spacing: {
+                    "xs": "4px",
+                    "container-padding": "32px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "unit": "4px"
+            },
+            fontFamily: {
+                    "body-lg": ["Prompt"],
+                    "body-md": ["Prompt"],
+                    "h1": ["Prompt"],
+                    "h2": ["Prompt"],
+                    "label-sm": ["Prompt"],
+                    "h3": ["Prompt"],
+                    "button": ["Prompt"]
+            },
+            fontSize: {
+                    "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+                    "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
+                    "h1": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                    "h2": ["32px", { lineHeight: "1.3", letterSpacing: "-0.01em", fontWeight: "600" }],
+                    "label-sm": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "500" }],
+                    "h3": ["24px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "500" }],
+                    "button": ["16px", { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "600" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom scrollbar for capsule aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #dce9ff; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bfc9c3; }
+        
+        /* Level 1 Capsule Shadow */
+        .shadow-capsule {
+            box-shadow: 0 20px 40px -15px rgba(6, 78, 59, 0.08), 0 0 10px rgba(6, 78, 59, 0.02);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased flex h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full z-40 hidden lg:flex flex-col bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl rounded-[40px] m-4 w-72 border border-white/20 backdrop-blur-md border-r border-white/10 shadow-[0_20px_50px_rgba(6,78,59,0.15)] font-['Prompt'] font-medium antialiased">
+<div class="p-6 pt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+</div>
+<div>
+<h2 class="text-2xl font-black tracking-tight text-emerald-900 dark:text-emerald-500 leading-none">THLotto</h2>
+<p class="text-label-sm font-label-sm text-slate-500 mt-1">การควบคุมระดับผู้บริหาร</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-2 py-4 flex flex-col gap-1">
+<!-- Inactive Tabs -->
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                แผงควบคุม
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+                ฝากเงิน
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">account_balance_wallet</span>
+                ถอนเงิน
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+                สมาชิก
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">confirmation_number</span>
+                ตลาดหวย
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">list_alt</span>
+                รายการแทง
+            </a>
+<!-- Active Tab -->
+<a class="bg-emerald-900 dark:bg-emerald-600 text-white rounded-full mx-2 my-1 py-3 px-4 flex items-center shadow-lg hover:scale-[1.02] transition-transform duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">block</span>
+                รายการเลขอั้น
+            </a>
+<!-- More Inactive Tabs -->
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">casino</span>
+                จัดการวงล้อ
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                ตั้งค่า
+            </a>
+</nav>
+<div class="p-4 mt-auto">
+<button class="w-full bg-emerald-50 text-emerald-900 hover:bg-emerald-100 rounded-full py-3 px-4 flex items-center justify-center font-button text-button transition-colors">
+<span class="material-symbols-outlined mr-2 text-sm">summarize</span>
+                สร้างรายงาน
+            </button>
+<a class="mt-2 text-slate-500 hover:bg-slate-100/50 rounded-full py-3 px-4 flex items-center transition-all" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+                ออกจากระบบ
+            </a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col h-full lg:ml-[304px] w-full relative z-10">
+<!-- TopAppBar (Shared Component) -->
+<div class="px-container-padding pt-4">
+<header class="sticky top-0 z-50 w-full flex justify-between items-center h-20 px-8 gap-4 bg-slate-50/40 dark:bg-slate-950/40 backdrop-blur-md shadow-sm rounded-full mx-auto max-w-[1440px] border border-white/20 font-['Prompt'] text-sm tracking-wide text-emerald-900 dark:text-emerald-400">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-64 group focus-within:ring-2 focus-within:ring-emerald-900/20 rounded-full transition-all">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">search</span>
+<input class="w-full bg-white/50 border-none rounded-full py-2.5 pl-11 pr-4 focus:ring-0 placeholder-slate-400 text-emerald-900" placeholder="ค้นหาตลาด, ตัวเลข..." type="text"/>
+</div>
+</div>
+<div class="hidden md:block font-bold text-lg tracking-tight">ผู้ดูแลระบบ THLotto</div>
+<div class="flex items-center gap-2 justify-end flex-1">
+<button class="w-10 h-10 flex items-center justify-center text-slate-500 hover:bg-white/80 dark:hover:bg-slate-800/80 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-slate-500 hover:bg-white/80 dark:hover:bg-slate-800/80 rounded-full transition-all mr-2">
+<span class="material-symbols-outlined">settings_suggest</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Administrator" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1LUdhFd8sKMag54wRKh7bGUeWFnTXRM9A1-yDRZqxISYIOynCQEdxIJNezbd4QvWxZXslAljLdTgWxRaWJYT_nqMw9yYtgkFrM56LtroUJIhnYGDyfI9SAWz_D5TuamJDJos989fAstJw5DVDkYcBgRWdtw9JgRCxxxCmv2nGYgDUEd40EDpIBsZnPO35kv70jPtJgWocli3rQsGW99QJLW9S-SOMN3st4N5ecfOhbRX9FHB56rRK_7cM8jXlgv_lGyQhivTCUEm"/>
+</div>
+</div>
+</header>
+</div>
+<!-- Page Content Canvas -->
+<div class="flex-1 overflow-y-auto p-container-padding">
+<div class="max-w-[1440px] mx-auto">
+<!-- Header -->
+<div class="mb-lg flex items-end justify-between">
+<div>
+<h1 class="font-h2 text-h2 text-on-surface">รายการเลขอั้น</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">จัดการขีดจำกัดการจ่ายเงินและบล็อกตัวเลขเฉพาะในตลาดที่เปิดใช้งาน</p>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: Action Panel (Capsule) -->
+<div class="xl:col-span-4 bg-surface-container-lowest rounded-lg p-lg shadow-capsule flex flex-col gap-md border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<h2 class="font-h3 text-h3 text-on-surface">เพิ่มแบบชุด</h2>
+</div>
+<form class="flex flex-col gap-md">
+<!-- Field: Market Selection -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">ตลาดเป้าหมาย</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border-none rounded-full py-3.5 px-5 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:outline-none cursor-pointer transition-shadow">
+<option disabled="" selected="" value="">เลือกตลาด...</option>
+<option>หวยรัฐบาลไทย</option>
+<option>หวยลาว</option>
+<option>ฮานอย VIP</option>
+<option>มาเลย์ แม็กนั่ม</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Field: Bet Type -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">ประเภทการแทง</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border-none rounded-full py-3.5 px-5 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:outline-none cursor-pointer transition-shadow">
+<option disabled="" selected="" value="">เลือกประเภทการแทง...</option>
+<option>3 ตัวบน (เต็ง)</option>
+<option>3 ตัวโต๊ด</option>
+<option>2 ตัวล่าง</option>
+<option>เลขวิ่ง</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Field: Bulk Numbers -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2 flex justify-between">
+                                    ตัวเลขที่ต้องการอั้น
+                                    <span class="text-outline font-normal text-xs">คั่นด้วยช่องว่างหรือเครื่องหมายจุลภาค</span>
+</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-DEFAULT py-4 px-5 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none transition-shadow" placeholder="เช่น 000, 123, 999" rows="4"></textarea>
+</div>
+<!-- Divider -->
+<div class="h-px bg-outline-variant/30 my-2"></div>
+<!-- Submit Action -->
+<button class="bg-primary text-on-primary font-button text-button py-4 px-6 rounded-full hover:scale-[1.02] transition-transform duration-200 shadow-md flex items-center justify-center gap-2 mt-2 w-full" type="button">
+<span class="material-symbols-outlined text-sm">gpp_bad</span>
+                                ยืนยันการเพิ่มเลขอั้น
+                            </button>
+</form>
+</div>
+<!-- RIGHT COLUMN: Data List (Capsule) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded-lg p-lg shadow-capsule border border-outline-variant/10 flex flex-col h-[calc(100vh-200px)]">
+<!-- List Header -->
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-h3 text-h3 text-on-surface">เลขอั้นที่เปิดใช้งาน</h2>
+<!-- Filter Pill -->
+<div class="bg-surface-container rounded-full px-1 py-1 flex items-center">
+<button class="px-4 py-1.5 rounded-full bg-surface-container-lowest text-on-surface shadow-sm font-label-sm text-label-sm transition-all">ทั้งหมด</button>
+<button class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">รัฐบาลไทย</button>
+<button class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all">ลาว</button>
+</div>
+</div>
+<!-- Data Table (Capsule Rows) -->
+<div class="flex-1 overflow-y-auto pr-2">
+<div class="flex flex-col gap-2">
+<!-- Column Headers -->
+<div class="flex items-center px-4 py-2 font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-wider mb-2">
+<div class="w-24">ตัวเลข</div>
+<div class="flex-1">ตลาดและประเภท</div>
+<div class="w-32">เพิ่มโดย</div>
+<div class="w-12 text-center">จัดการ</div>
+</div>
+<!-- Row Item -->
+<div class="group flex items-center px-4 py-3 bg-surface-container-low hover:bg-surface-container transition-colors rounded-DEFAULT">
+<div class="w-24 font-h3 text-h3 text-primary tracking-widest">999</div>
+<div class="flex-1 flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">หวยรัฐบาลไทย</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                            3 ตัวบน (เต็ง)
+                                        </span>
+</div>
+<div class="w-32 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-[10px] font-bold">A</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">แอดมิน</span>
+</div>
+<div class="w-12 flex justify-center">
+<button class="text-outline hover:text-error hover:bg-error-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+<!-- Row Item -->
+<div class="group flex items-center px-4 py-3 bg-surface-container-low hover:bg-surface-container transition-colors rounded-DEFAULT">
+<div class="w-24 font-h3 text-h3 text-primary tracking-widest">000</div>
+<div class="flex-1 flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">ฮานอย VIP</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                            2 ตัวล่าง
+                                        </span>
+</div>
+<div class="w-32 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-[10px] font-bold">S</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ระบบ</span>
+</div>
+<div class="w-12 flex justify-center">
+<button class="text-outline hover:text-error hover:bg-error-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+<!-- Row Item -->
+<div class="group flex items-center px-4 py-3 bg-surface-container-low hover:bg-surface-container transition-colors rounded-DEFAULT">
+<div class="w-24 font-h3 text-h3 text-primary tracking-widest">123</div>
+<div class="flex-1 flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">หวยลาว</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                            3 ตัวโต๊ด
+                                        </span>
+</div>
+<div class="w-32 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-[10px] font-bold">A</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">แอดมิน</span>
+</div>
+<div class="w-12 flex justify-center">
+<button class="text-outline hover:text-error hover:bg-error-container p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+<!-- Empty State (Hidden by default, shown for structure) -->
+<!--
+                                <div class="flex flex-col items-center justify-center py-12 text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-4xl mb-4 opacity-50">verified_user</span>
+                                    <p class="font-body-md text-body-md">ไม่พบรายการเลขอั้นที่เปิดใช้งาน</p>
+                                </div>
+                                -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

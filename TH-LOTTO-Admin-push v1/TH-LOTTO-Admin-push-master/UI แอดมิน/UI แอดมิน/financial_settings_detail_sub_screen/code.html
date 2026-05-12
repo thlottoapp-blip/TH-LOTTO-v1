@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>การตั้งค่าระบบการเงิน</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#6cf8bb",
+                      "secondary-fixed": "#6ffbbe",
+                      "surface-container": "#e5eeff",
+                      "surface-variant": "#d3e4fe",
+                      "on-secondary-fixed": "#002113",
+                      "primary-fixed": "#b0f0d6",
+                      "inverse-surface": "#213145",
+                      "background": "#f8f9ff",
+                      "tertiary-fixed-dim": "#bdcac1",
+                      "on-surface-variant": "#404944",
+                      "surface-container-low": "#eff4ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "error": "#ba1a1a",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-fixed": "#131e19",
+                      "surface-bright": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#95d3ba",
+                      "on-secondary-container": "#00714d",
+                      "surface-container-high": "#dce9ff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "outline-variant": "#bfc9c3",
+                      "error-container": "#ffdad6",
+                      "on-background": "#0b1c30",
+                      "outline": "#707974",
+                      "on-tertiary-container": "#a8b5ad",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#2b6954",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-fixed-dim": "#95d3ba",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "surface-dim": "#cbdbf5",
+                      "on-primary-container": "#80bea6",
+                      "secondary": "#006c49",
+                      "on-tertiary-fixed-variant": "#3e4943",
+                      "tertiary-container": "#3b4741",
+                      "tertiary": "#25312b",
+                      "primary": "#003527",
+                      "on-secondary-fixed-variant": "#005236",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-surface": "#0b1c30",
+                      "primary-container": "#064e3b",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#002117",
+                      "tertiary-fixed": "#d9e6dd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "xl": "40px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "container-padding": "32px",
+                      "md": "16px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Prompt"
+                      ],
+                      "body-md": [
+                              "Prompt"
+                      ],
+                      "h3": [
+                              "Prompt"
+                      ],
+                      "h2": [
+                              "Prompt"
+                      ],
+                      "h1": [
+                              "Prompt"
+                      ],
+                      "button": [
+                              "Prompt"
+                      ],
+                      "body-lg": [
+                              "Prompt"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "h2": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+        }
+      </style>
+</head>
+<body class="text-on-background font-body-md text-body-md antialiased overflow-x-hidden min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/60 dark:bg-emerald-950/60 backdrop-blur-xl docked full-width top-0 z-50 border-b border-white/20 dark:border-emerald-800/30 shadow-[0_10px_30px_-15px_rgba(6,78,59,0.1)] flex justify-between items-center w-full px-8 h-20 fixed">
+<div class="flex items-center gap-gutter">
+<span class="font-['Prompt'] antialiased text-2xl font-black tracking-tight text-emerald-900 dark:text-emerald-50">THLotto</span>
+<nav class="hidden md:flex gap-md ml-xl">
+<a class="text-emerald-700/60 dark:text-emerald-400/60 hover:scale-105 hover:text-emerald-900 transition-all duration-300 font-label-sm text-label-sm px-4 py-2" href="#">แผงควบคุม</a>
+<a class="text-emerald-700/60 dark:text-emerald-400/60 hover:scale-105 hover:text-emerald-900 transition-all duration-300 font-label-sm text-label-sm px-4 py-2" href="#">ควบคุมการออกรางวัล</a>
+<a class="text-emerald-900 dark:text-emerald-50 font-bold border-b-2 border-emerald-900 font-label-sm text-label-sm px-4 py-2" href="#">การตั้งค่าระบบ</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-emerald-900 dark:text-emerald-400 hover:scale-105 hover:text-emerald-900 transition-all duration-300 p-2">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-emerald-900 dark:text-emerald-400 hover:scale-105 hover:text-emerald-900 transition-all duration-300 p-2">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm ml-sm">
+<img alt="โปรไฟล์ผู้ดูแลระบบ" class="w-full h-full object-cover" data-alt="professional headshot of an executive administrator in a bright office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDywJvzKjcK-aOkpIZQMSdi_9GtAKNsgrDIPIXdrFZY-tyIwE5frGyHQxSTOZEQdJDG62bOaZIEo6Qu7mDz8QFvTtswMUsY2gIwCGvpU9wWhzrjcolEAlfJTV87MdF1swMQQhtIuGS_APhKvd7rcKU0e8OeKzp9KVQ_fWLM6xWK6A8xap1oapr8Te3HG48L-QkSZtKNSUpJem7h6IeD0C_nDOYSwXNTVhIsUAj08ugby8tteDM09x02S5vVbH9VN-LcpD5qHEs4Do1h"/>
+</div>
+</div>
+</header>
+<div class="flex pt-20 h-screen overflow-hidden">
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto px-4 md:px-gutter py-xl">
+<div class="max-w-[1000px] mx-auto">
+<!-- Page Header -->
+<div class="mb-xl flex items-center justify-between">
+<div>
+<div class="flex items-center gap-sm mb-sm">
+<a class="text-outline hover:text-primary transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-sm text-label-sm">กลับไปที่การตั้งค่า</span>
+</a>
+</div>
+<h1 class="font-h1 text-h1 text-on-background">พารามิเตอร์การเงิน</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">กำหนดกฎเกณฑ์ส่วนกลางสำหรับธุรกรรมและขีดจำกัดของระบบ</p>
+</div>
+<div class="flex gap-md">
+<button class="px-lg py-sm rounded-full border border-outline-variant text-on-surface font-button text-button hover:bg-surface-variant transition-colors">ยกเลิก</button>
+<button class="px-lg py-sm rounded-full bg-primary-container text-on-primary font-button text-button hover:scale-[1.02] transition-transform shadow-[0_4px_12px_rgba(6,78,59,0.2)]">บันทึกการเปลี่ยนแปลง</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Financial Rules Card -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-container-padding shadow-[0_15px_40px_-15px_rgba(6,78,59,0.08)] relative overflow-hidden">
+<!-- Glass highlight -->
+<div class="absolute inset-0 border border-white rounded-xl pointer-events-none mix-blend-overlay"></div>
+<div class="flex items-center gap-md mb-lg border-b border-surface-variant pb-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-background">กฎเกณฑ์การเงิน</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Deposit Limits -->
+<div class="space-y-md">
+<h3 class="font-h3 text-h3 text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_downward">arrow_downward</span> การฝากเงิน
+                                </h3>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">ขั้นต่ำการฝาก (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="100.00"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">สูงสุดการฝาก (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="500,000.00"/>
+</div>
+</div>
+</div>
+<!-- Withdrawal Limits -->
+<div class="space-y-md">
+<h3 class="font-h3 text-h3 text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_upward">arrow_upward</span> การถอนเงิน
+                                </h3>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">ขั้นต่ำการถอน (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="300.00"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">สูงสุดการถอน (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="2,000,000.00"/>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-surface-variant">
+<h3 class="font-h3 text-h3 text-on-surface-variant flex items-center gap-xs mb-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="percent">percent</span> ค่าคอมมิชชั่นและค่าธรรมเนียม
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">อัตราค่าคอมมิชชั่นตัวแทน (%)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="5.0"/>
+<span class="absolute right-lg top-1/2 -translate-y-1/2 text-outline">%</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">ค่าธรรมเนียมการถอนแบบคงที่ (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="0.00"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Limits Card -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-container-padding shadow-[0_15px_40px_-15px_rgba(6,78,59,0.08)] relative overflow-hidden flex flex-col">
+<div class="absolute inset-0 border border-white rounded-xl pointer-events-none mix-blend-overlay"></div>
+<div class="flex items-center gap-md mb-lg border-b border-surface-variant pb-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+</div>
+<h2 class="font-h2 text-h2 text-on-background">ขีดจำกัดระบบ</h2>
+</div>
+<div class="flex-1 space-y-lg">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">ยอดความเสี่ยงรวมรายวัน (บาท)</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-error font-semibold focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="50,000,000"/>
+</div>
+<p class="font-label-sm text-[12px] text-outline ml-sm mt-xs">ความรับผิดชอบในการจ่ายเงินสูงสุดต่อวัน</p>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">จำนวนธุรกรรมสูงสุด / ผู้ใช้ / วัน</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-lg py-sm font-body-lg text-body-lg text-on-background focus:border-primary-container focus:ring-0 focus:shadow-[0_0_0_4px_rgba(6,78,59,0.1)] transition-all" type="text" value="50"/>
+</div>
+</div>
+<div class="mt-auto pt-lg bg-surface-container-low rounded-lg p-md mt-xl">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-background">เกณฑ์การอนุมัติอัตโนมัติ</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mt-xs">การถอนเงินที่ต่ำกว่า 50,000 บาท จะได้รับการดำเนินการโดยอัตโนมัติตามกฎปัจจุบัน</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

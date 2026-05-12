@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ตัวแก้ไขบทความ - THLotto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#6cf8bb",
+                    "secondary-fixed": "#6ffbbe",
+                    "surface-container": "#e5eeff",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#002113",
+                    "primary-fixed": "#b0f0d6",
+                    "inverse-surface": "#213145",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#bdcac1",
+                    "on-surface-variant": "#404944",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed": "#131e19",
+                    "surface-bright": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#95d3ba",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#0b1c30",
+                    "outline": "#707974",
+                    "on-tertiary-container": "#a8b5ad",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#2b6954",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#006c49",
+                    "on-tertiary-fixed-variant": "#3e4943",
+                    "tertiary-container": "#3b4741",
+                    "tertiary": "#25312b",
+                    "primary": "#003527",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-surface": "#0b1c30",
+                    "primary-container": "#064e3b",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#002117",
+                    "tertiary-fixed": "#d9e6dd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "xl": "40px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "container-padding": "32px",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Prompt"],
+                    "body-md": ["Prompt"],
+                    "h3": ["Prompt"],
+                    "h2": ["Prompt"],
+                    "h1": ["Prompt"],
+                    "button": ["Prompt"],
+                    "body-lg": ["Prompt"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "button": ["16px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for text area */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bfc9c3; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #707974; }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Editor Specific Top Bar (Task-Focused: Suppressing global nav) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest/80 backdrop-blur-2xl border-b border-outline-variant/20 px-gutter h-20 flex justify-between items-center shrink-0">
+<div class="flex items-center gap-md">
+<button class="flex items-center justify-center w-10 h-10 rounded-full text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-h3 text-h3 text-on-surface">ข่าวสารและอัปเดต</span>
+<span class="font-label-sm text-label-sm text-outline">แบบร่างที่ยังไม่บันทึก</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-lg py-sm rounded-full bg-surface-container-low text-on-surface font-button text-button hover:bg-surface-container-high transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                บันทึกแบบร่าง
+            </button>
+<button class="px-lg py-sm rounded-full bg-primary text-on-primary font-button text-button hover:scale-[1.02] transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">send</span>
+                เผยแพร่
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[1024px] mx-auto px-gutter py-xl">
+<!-- The Editor Capsule -->
+<article class="bg-surface-container-lowest rounded-xl shadow-[0_20px_50px_-20px_rgba(0,53,39,0.06)] p-container-padding flex flex-col gap-lg">
+<!-- Cover Image Upload Area -->
+<div class="relative w-full h-[320px] bg-surface-container rounded-lg overflow-hidden group cursor-pointer border-2 border-dashed border-outline-variant/50 hover:border-primary/50 transition-colors flex items-center justify-center">
+<!-- Preview Image -->
+<img alt="Cover Preview" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity" data-alt="Modern minimalist workspace desk with laptop, notebook, and small green succulent plant bathed in warm soft sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhD6QRcYtwzoYtRjyj0L5Ho32Ii5KZX61frpnbTHSdeBfF5pkibPGxlSDKsQIdezaYu4O9qNs3tCy6BA_axQnzG8S4ARmL7_i33KWYMazn34LBae16csOXe8k7V-MtWnGFAnKpFu6SnsqliWxRWZmjuA449TYT4QRSCBa3FZdTnxXbmHp0tykmLoOa5Zad1GeQIkCoWzhYURbHVGOGTvQaSdAHXqFkK3C3FMMrsJPe5zqUWfZmx52tMdwCF3H7m3UayOPoRuG3F_q3"/>
+<!-- Overlay Gradient for text readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 to-transparent"></div>
+<!-- Upload CTA -->
+<div class="relative z-10 flex flex-col items-center gap-sm bg-surface-container-lowest/90 backdrop-blur-md px-lg py-md rounded-DEFAULT shadow-sm opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">add_photo_alternate</span>
+<span class="font-label-sm text-label-sm text-on-surface">เปลี่ยนรูปหน้าปก</span>
+</div>
+</div>
+<!-- Meta Details Row -->
+<div class="flex flex-wrap items-center gap-md border-b border-outline-variant/20 pb-md">
+<!-- Category Selector -->
+<div class="relative flex items-center group">
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-full cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">folder</span>
+<span class="font-label-sm text-label-sm text-on-surface">อัปเดตระบบ</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- Status Toggle -->
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-full">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">แบบร่าง</span>
+</div>
+<div class="flex-grow"></div>
+<!-- Date/Author Info -->
+<div class="font-label-sm text-label-sm text-outline flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    24 ต.ค. 2023
+                </div>
+</div>
+<!-- Title Input -->
+<div>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-h1 text-h1 text-on-surface placeholder:text-outline-variant/50 caret-primary" placeholder="ใส่หัวข้อที่น่าสนใจ..." type="text" value="อัปเกรดสถาปัตยกรรมระบบไตรมาสที่ 4 และกำหนดการบำรุงรักษา"/>
+</div>
+<!-- Rich Text Toolbar -->
+<div class="sticky top-[88px] z-40 bg-surface-container-lowest/90 backdrop-blur-md py-sm -mx-sm px-sm flex items-center gap-xs border-b border-outline-variant/10">
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="ตัวหนา">
+<span class="material-symbols-outlined text-[20px]">format_bold</span>
+</button>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="ตัวเอียง">
+<span class="material-symbols-outlined text-[20px]">format_italic</span>
+</button>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="ขีดเส้นใต้">
+<span class="material-symbols-outlined text-[20px]">format_underlined</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/30 mx-xs"></div>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="หัวเรื่อง 1">
+<span class="material-symbols-outlined text-[20px]">format_h1</span>
+</button>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="หัวเรื่อง 2">
+<span class="material-symbols-outlined text-[20px]">format_h2</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/30 mx-xs"></div>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="รายการสัญลักษณ์หัวข้อ">
+<span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+</button>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="รายการลำดับเลข">
+<span class="material-symbols-outlined text-[20px]">format_list_numbered</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/30 mx-xs"></div>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="แทรกลิงก์">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</button>
+<button class="p-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors focus:outline-none" title="แทรกรูปภาพ">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+</div>
+<!-- Content Area -->
+<div class="min-h-[400px]">
+<textarea class="w-full h-full min-h-[400px] bg-transparent border-none p-0 focus:ring-0 font-body-lg text-body-lg text-on-surface-variant resize-none outline-none" placeholder="เริ่มเขียนบทความของคุณที่นี่... ใช้แถบเครื่องมือด้านบนเพื่อจัดรูปแบบข้อความของคุณ">เรากำลังเตรียมปรับใช้การอัปเกรดโครงสร้างพื้นฐานการประมวลผลหลักของเราอย่างมีนัยสำคัญ เพื่อรองรับภาระงานที่เพิ่มขึ้นในช่วงเวลาที่มีการออกรางวัลสูงสุด การอัปเดตนี้เน้นที่การเพิ่มประสิทธิภาพการจัดทำดัชนีฐานข้อมูลและเพิ่มความยืดหยุ่นของโหนดการทำงานของเรา
+
+การเปลี่ยนแปลงที่สำคัญ ได้แก่:
+- การย้ายไปยังอาร์เรย์ SSD ที่มีปริมาณการรับส่งข้อมูลสูงสำหรับฐานข้อมูลธุรกรรมหลัก
+- การนำเลเยอร์การแคชขั้นสูงมาใช้เพื่อลดเวลาแฝงสำหรับการดำเนินการที่อ่านข้อมูลจำนวนมาก เช่น การค้นหาอัตรา
+
+โปรดตรวจสอบให้แน่ใจว่างานธุรการที่ไม่สำคัญทั้งหมดถูกหยุดชั่วคราวในช่วงเวลาการบำรุงรักษา</textarea>
+</div>
+</article>
+</main>
+</body></html>

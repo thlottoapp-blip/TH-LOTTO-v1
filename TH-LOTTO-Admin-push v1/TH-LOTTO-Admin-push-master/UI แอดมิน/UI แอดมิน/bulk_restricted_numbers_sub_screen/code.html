@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>การจัดการเลขอั้นแบบชุด</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#6cf8bb",
+                    "secondary-fixed": "#6ffbbe",
+                    "surface-container": "#e5eeff",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#002113",
+                    "primary-fixed": "#b0f0d6",
+                    "inverse-surface": "#213145",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#bdcac1",
+                    "on-surface-variant": "#404944",
+                    "surface-container-low": "#eff4ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "error": "#ba1a1a",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed": "#131e19",
+                    "surface-bright": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#95d3ba",
+                    "on-secondary-container": "#00714d",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bfc9c3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#0b1c30",
+                    "outline": "#707974",
+                    "on-tertiary-container": "#a8b5ad",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#2b6954",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary-container": "#80bea6",
+                    "secondary": "#006c49",
+                    "on-tertiary-fixed-variant": "#3e4943",
+                    "tertiary-container": "#3b4741",
+                    "tertiary": "#25312b",
+                    "primary": "#003527",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-surface": "#0b1c30",
+                    "primary-container": "#064e3b",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#002117",
+                    "tertiary-fixed": "#d9e6dd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "xl": "40px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "container-padding": "32px",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Prompt"],
+                    "body-md": ["Prompt"],
+                    "h3": ["Prompt"],
+                    "h2": ["Prompt"],
+                    "h1": ["Prompt"],
+                    "button": ["Prompt"],
+                    "body-lg": ["Prompt"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "button": ["16px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(0, 53, 39, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background antialiased flex min-h-screen">
+<!-- Content Canvas -->
+<main class="flex-1 max-w-[1440px] mx-auto p-container-padding">
+<!-- Header -->
+<header class="mb-xl flex justify-between items-center">
+<div>
+<a class="inline-flex items-center text-primary/60 hover:text-primary transition-colors mb-sm" href="#">
+<span class="material-symbols-outlined mr-xs text-[20px]">arrow_back</span>
+<span class="font-label-sm text-label-sm">กลับไปจัดการงวด</span>
+</a>
+<h1 class="font-h1 text-h1 text-primary tracking-tight">เพิ่มเลขอั้นแบบชุด</h1>
+</div>
+<div>
+<button class="bg-primary text-on-primary font-button text-button px-lg py-md rounded-full hover:scale-105 transition-transform duration-200 shadow-[0_4px_14px_0_rgba(0,53,39,0.39)]">
+                    บันทึกเลขอั้น
+                </button>
+</div>
+</header>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Input Form -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Settings Card -->
+<section class="bg-surface-container-lowest rounded-[32px] p-lg glass-panel">
+<h2 class="font-h3 text-h3 text-primary mb-md">ตลาดและประเภทการแทง</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Market Dropdown -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">เลือกตลาด</label>
+<div class="relative">
+<select class="w-full appearance-none bg-[#f1f5f9] border border-transparent rounded-full py-md pl-lg pr-xl font-body-md text-body-md text-on-background focus:border-primary focus:ring-0 focus:outline-none focus:shadow-[0_0_0_4px_rgba(0,53,39,0.1)] transition-all">
+<option>หวยรัฐบาลไทย</option>
+<option>หวยลาว</option>
+<option>หวยฮานอย</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-primary/60 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Bet Type Dropdown -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs ml-sm">ประเภทการแทง</label>
+<div class="relative">
+<select class="w-full appearance-none bg-[#f1f5f9] border border-transparent rounded-full py-md pl-lg pr-xl font-body-md text-body-md text-on-background focus:border-primary focus:ring-0 focus:outline-none focus:shadow-[0_0_0_4px_rgba(0,53,39,0.1)] transition-all">
+<option>3 ตัวบน</option>
+<option>2 ตัวล่าง</option>
+<option>3 ตัวล่าง</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-primary/60 pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bulk Input Area -->
+<section class="bg-surface-container-lowest rounded-[32px] p-lg glass-panel flex-1 flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-h3 text-h3 text-primary">กรอกตัวเลข</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container py-xs px-sm rounded-full">คั่นด้วยจุลภาคหรือช่องว่าง</span>
+</div>
+<div class="flex-1 relative group">
+<textarea class="w-full h-full min-h-[300px] bg-[#f1f5f9] border border-transparent rounded-xl p-md font-body-md text-body-md text-on-background focus:border-primary focus:ring-0 focus:outline-none focus:shadow-[0_0_0_4px_rgba(0,53,39,0.1)] transition-all resize-none" placeholder="เช่น 123, 456 789 012..."></textarea>
+</div>
+<div class="mt-md flex justify-end gap-sm">
+<button class="bg-transparent border border-primary text-primary font-button text-button px-lg py-sm rounded-full hover:bg-primary/5 transition-colors">
+                            ล้างข้อมูล
+                        </button>
+<button class="bg-surface-tint text-on-primary font-button text-button px-lg py-sm rounded-full hover:scale-105 transition-transform duration-200">
+                            ประมวลผลตัวเลข
+                        </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Live Preview -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<section class="bg-surface-container-lowest rounded-[32px] p-lg glass-panel flex-1 flex flex-col h-[600px] lg:h-auto overflow-hidden">
+<div class="flex justify-between items-end mb-md border-b border-outline-variant/30 pb-sm">
+<h2 class="font-h3 text-h3 text-primary">ดูตัวอย่าง</h2>
+<span class="font-label-sm text-label-sm text-primary bg-primary-container/20 py-xs px-sm rounded-full">ตัวเลขที่ถูกต้อง 24 รายการ</span>
+</div>
+<!-- Scrolling List -->
+<div class="flex-1 overflow-y-auto pr-xs">
+<div class="grid grid-cols-3 gap-sm">
+<!-- Valid Number Chip -->
+<div class="bg-[#f0fdf4] text-primary border border-primary/10 rounded-full py-xs px-sm flex justify-center items-center font-label-sm text-label-sm">
+                                123
+                            </div>
+<div class="bg-[#f0fdf4] text-primary border border-primary/10 rounded-full py-xs px-sm flex justify-center items-center font-label-sm text-label-sm">
+                                456
+                            </div>
+<div class="bg-[#f0fdf4] text-primary border border-primary/10 rounded-full py-xs px-sm flex justify-center items-center font-label-sm text-label-sm">
+                                789
+                            </div>
+<div class="bg-[#f0fdf4] text-primary border border-primary/10 rounded-full py-xs px-sm flex justify-center items-center font-label-sm text-label-sm">
+                                012
+                            </div>
+<!-- Error Number Chip -->
+<div class="bg-error-container text-on-error-container border border-error/20 rounded-full py-xs px-sm flex justify-center items-center font-label-sm text-label-sm relative group cursor-help">
+                                12
+                                <div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-xs bg-inverse-surface text-inverse-on-surface text-xs rounded px-2 py-1 whitespace-nowrap z-10">
+                                    รูปแบบไม่ถูกต้อง
+                                </div>
+</div>
+</div>
+</div>
+<div class="mt-md pt-md border-t border-outline-variant/30 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-error text-[18px]">error</span>
+                             พบข้อผิดพลาด 1 รายการ
+                         </p>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

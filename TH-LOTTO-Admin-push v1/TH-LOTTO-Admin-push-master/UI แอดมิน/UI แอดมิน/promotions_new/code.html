@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>จัดการโปรโมชั่น - THLotto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f8f9ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-primary-container": "#80bea6",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#404944",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface-variant": "#d3e4fe",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "outline": "#707974",
+                      "surface-tint": "#2b6954",
+                      "inverse-surface": "#213145",
+                      "primary-container": "#064e3b",
+                      "secondary": "#006c49",
+                      "primary-fixed": "#b0f0d6",
+                      "primary-fixed-dim": "#95d3ba",
+                      "on-tertiary-container": "#a8b5ad",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#3b4741",
+                      "on-secondary-fixed-variant": "#005236",
+                      "tertiary": "#25312b",
+                      "surface-container-low": "#eff4ff",
+                      "inverse-primary": "#95d3ba",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-secondary-container": "#00714d",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#002117",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#6cf8bb",
+                      "on-secondary-fixed": "#002113",
+                      "on-tertiary-fixed-variant": "#3e4943",
+                      "primary": "#003527",
+                      "surface-container": "#e5eeff",
+                      "surface-dim": "#cbdbf5",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-fixed-dim": "#bdcac1",
+                      "outline-variant": "#bfc9c3",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "background": "#f8f9ff",
+                      "tertiary-fixed": "#d9e6dd",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary-fixed": "#131e19"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "container-padding": "32px",
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "md": "16px",
+                      "xl": "40px",
+                      "sm": "8px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Prompt"
+                      ],
+                      "body-md": [
+                              "Prompt"
+                      ],
+                      "h1": [
+                              "Prompt"
+                      ],
+                      "h2": [
+                              "Prompt"
+                      ],
+                      "label-sm": [
+                              "Prompt"
+                      ],
+                      "h3": [
+                              "Prompt"
+                      ],
+                      "button": [
+                              "Prompt"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "h2": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col lg:flex-row relative overflow-x-hidden">
+<!-- Ambient Background Lighting -->
+<div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+<!-- SideNavBar (JSON Component) -->
+<nav class="fixed left-0 top-0 h-full z-40 hidden lg:flex flex-col bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl font-['Prompt'] font-medium antialiased rounded-[40px] m-4 h-[calc(100vh-32px)] w-72 border border-white/20 backdrop-blur-md border-r border-white/10 shadow-[0_20px_50px_rgba(6,78,59,0.15)]">
+<!-- Brand / Header -->
+<div class="px-8 pt-10 pb-6 flex flex-col items-center border-b border-white/10 mb-4">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-white shadow-sm">
+<img alt="Administrator Profile Avatar" class="w-full h-full object-cover" data-alt="Portrait of a professional man in a dark suit, soft natural lighting, corporate executive style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn7PUYW4Ogi4Ls9pL56GHwGc36TAoW_poLaacJZ1HFk5PwFheGHGaP2ZHLG-QNHlc_SrMeM-YqaOMAlpHBzHBBE1Vr5pc1eJgEq7R7wxBraNqQVTFyHdmpnJZMKe4b9f6wiNejOlzdUb2rcI5jiWfMrwAqeh2SFu5b4GBckqR3CoffPEAKj3IeF0rsME0DmpL32Iu68Um-fyF_4eondh0DdH8hw5PrkQT0U07Frt1igZyNZViuha5RdhvJFwdbIcpvRyxH9_-N4x6P"/>
+</div>
+<h2 class="text-2xl font-black tracking-tight text-emerald-900 dark:text-emerald-500">THLotto</h2>
+<p class="text-emerald-900 dark:text-emerald-400 text-sm mt-1 opacity-80">ผู้ดูแลระบบ</p>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 overflow-y-auto px-2 py-2 space-y-1 custom-scrollbar">
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">dashboard</span>
+                แดชบอร์ด
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">payments</span>
+                รายการฝาก
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">account_balance_wallet</span>
+                รายการถอน
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">group</span>
+                สมาชิก
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">confirmation_number</span>
+                ตลาดหวย
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">list_alt</span>
+                รายการโพย
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">block</span>
+                เลขอั้น
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">casino</span>
+                วงล้อพารวย
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">settings</span>
+                ตั้งค่า
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">palette</span>
+                รูปลักษณ์
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">view_carousel</span>
+                สไลเดอร์
+            </a>
+<!-- Active Tab -->
+<a class="bg-emerald-900 dark:bg-emerald-600 text-white rounded-full mx-2 my-1 py-3 px-4 flex items-center shadow-lg transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                โปรโมชั่น
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">article</span>
+                บทความ
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">account_balance</span>
+                ธนาคาร
+            </a>
+<a class="text-slate-600 dark:text-slate-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 rounded-full mx-2 my-1 py-3 px-4 flex items-center transition-all hover:scale-[1.02] duration-200 ease-out active:scale-95 group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100 transition-opacity">admin_panel_settings</span>
+                แอดมิน
+            </a>
+</div>
+<!-- Footer / CTA -->
+<div class="p-6 mt-auto border-t border-white/10">
+<button class="w-full bg-emerald-900/10 text-emerald-900 dark:text-emerald-400 font-semibold py-3 rounded-full hover:bg-emerald-900/20 transition-colors mb-4 flex items-center justify-center">
+                สร้างรายงาน
+            </button>
+<a class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 flex items-center justify-center py-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-2">logout</span>
+                ออกจากระบบ
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-80 min-h-screen flex flex-col pt-4 px-4 lg:px-8 pb-12 w-full max-w-[1440px] mx-auto">
+<!-- TopAppBar (JSON Component) -->
+<header class="sticky top-0 z-50 w-full flex justify-between items-center h-20 px-8 gap-4 bg-slate-50/40 dark:bg-slate-950/40 backdrop-blur-md text-emerald-900 dark:text-emerald-400 font-['Prompt'] text-sm tracking-wide rounded-full mt-4 mx-auto max-w-[1440px] border border-white/20 shadow-sm focus-within:ring-2 focus-within:ring-emerald-900/20">
+<div class="hidden">
+                 THLotto แอดมิน
+            </div>
+<!-- Search -->
+<div class="flex-1 max-w-md relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-emerald-700 transition-colors">search</span>
+</div>
+<input class="w-full bg-white/50 border border-white/40 text-slate-800 rounded-full pl-11 pr-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-900/20 focus:bg-white focus:border-emerald-900/30 transition-all placeholder-slate-400 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="ค้นหาโปรโมชั่น, รหัส..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all text-slate-500 hover:text-emerald-900 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all text-slate-500 hover:text-emerald-900">
+<span class="material-symbols-outlined">settings_suggest</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden ml-2 border-2 border-white/50 shadow-sm cursor-pointer hover:border-emerald-200 transition-colors">
+<img alt="Administrator" class="w-full h-full object-cover" data-alt="Portrait of a professional man in a dark suit, soft natural lighting, corporate executive style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA23W4P2g_mIMMhxYJh85QOwZzUWJHqs34qFOFsTm0ZbIopTVCcG7Gx_vyEGjCixiypDdyOvLPxZTMk6Da369JaNL-_UtuDWO8uBYnA3dMb1rjFc-TOj6t6g-ML5JwTKJqKuZ1l0YZ6k7mVLYkmpFwCGOUKutvB8yVsEHoiXT2_18mYws1ueFCju2d85cIK4cZkgKGTCPCXPd0532sZm1-I3IUfVOOJKpS8ZijEJuMPuL8ew6lxXiikbB_8pWKtBgcokbpBpVusaPTO"/>
+</div>
+</div>
+</header>
+<!-- Page Header -->
+<div class="mt-xl mb-lg flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 px-2">
+<div>
+<h1 class="font-h1 text-h1 text-primary mb-2">โปรโมชั่น</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">จัดการโบนัส, ขีดจำกัด และเงื่อนไขเทิร์นโอเวอร์</p>
+</div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full hover:scale-[1.02] transition-transform duration-200 shadow-[0_8px_16px_rgba(0,53,39,0.15)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                สร้างโปรโมชั่นใหม่
+            </button>
+</div>
+<!-- Promotions Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-white/40 shadow-[0_15px_40px_rgba(6,78,59,0.08)] relative group hover:shadow-[0_20px_50px_rgba(6,78,59,0.12)] transition-shadow">
+<div class="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent rounded-xl pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-background">โบนัสสมาชิกใหม่</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2.5 py-0.5 rounded-full mt-1 inline-block">รหัส: WELCOME100</span>
+</div>
+</div>
+<!-- Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">โบนัส 100% สำหรับการฝากครั้งแรกของสมาชิกใหม่ โบนัสสูงสุด 5,000 บาท</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">อัตราโบนัส</span>
+<span class="font-h3 text-h3 text-on-surface">100%</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">เทิร์นโอเวอร์</span>
+<span class="font-h3 text-h3 text-on-surface">20x</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">ฝากขั้นต่ำ</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">฿ 300</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">โบนัสสูงสุด</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">฿ 5,000</span>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-surface-variant pt-4">
+<button class="p-2 text-outline hover:text-primary transition-colors rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-outline hover:text-error transition-colors rounded-full hover:bg-error-container/50">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-white/40 shadow-[0_15px_40px_rgba(6,78,59,0.08)] relative group hover:shadow-[0_20px_50px_rgba(6,78,59,0.12)] transition-shadow">
+<div class="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent rounded-xl pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">replay</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-background">คืนยอดเสียรายสัปดาห์</h3>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2.5 py-0.5 rounded-full mt-1 inline-block">รับอัตโนมัติ</span>
+</div>
+</div>
+<!-- Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">คืนยอดเสีย 5% ของยอดเสียสุทธิรายสัปดาห์ เครดิตเข้าทุกวันจันทร์</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">แคชแบ็ค</span>
+<span class="font-h3 text-h3 text-on-surface">5%</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">เทิร์นโอเวอร์</span>
+<span class="font-h3 text-h3 text-on-surface">1x</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">ยอดเสียขั้นต่ำ</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">฿ 1,000</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline block mb-1">จ่ายสูงสุด</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">ไม่จำกัด</span>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-surface-variant pt-4">
+<button class="p-2 text-outline hover:text-primary transition-colors rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-outline hover:text-error transition-colors rounded-full hover:bg-error-container/50">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Card 3 (Inactive) -->
+<div class="bg-surface-container-lowest/60 rounded-xl p-md border border-white/40 shadow-[0_15px_40px_rgba(0,0,0,0.03)] relative group opacity-75 grayscale-[0.2]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-xl pointer-events-none"></div>
+<div class="relative z-10 flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-variant/50 flex items-center justify-center text-outline">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">redeem</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-outline">โบนัสวันเกิด VIP</h3>
+<span class="font-label-sm text-label-sm text-outline bg-surface-variant/50 px-2.5 py-0.5 rounded-full mt-1 inline-block">รหัส: BDAYVIP</span>
+</div>
+</div>
+<!-- Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<p class="font-body-md text-body-md text-outline mb-6 line-clamp-2">โบนัสพิเศษวันเกิดสำหรับสมาชิกระดับ VIP Gold ขึ้นไป</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low/50 rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline/70 block mb-1">จำนวนเงินคงที่</span>
+<span class="font-h3 text-h3 text-outline">฿ 2,000</span>
+</div>
+<div class="bg-surface-container-low/50 rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline/70 block mb-1">เทิร์นโอเวอร์</span>
+<span class="font-h3 text-h3 text-outline">5x</span>
+</div>
+<div class="bg-surface-container-low/50 rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline/70 block mb-1">ฝากขั้นต่ำ</span>
+<span class="font-body-md text-body-md text-outline font-medium">N/A</span>
+</div>
+<div class="bg-surface-container-low/50 rounded-lg p-3">
+<span class="font-label-sm text-label-sm text-outline/70 block mb-1">จำนวนวันใช้งาน</span>
+<span class="font-body-md text-body-md text-outline font-medium">7 วัน</span>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-surface-variant/50 pt-4 relative z-20">
+<button class="p-2 text-outline hover:text-primary transition-colors rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-outline hover:text-error transition-colors rounded-full hover:bg-error-container/50">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add/Edit Modal (Hidden by default, shown here for design purposes. In a real app, JS would toggle visibility) -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-4 hidden">
+<div class="bg-surface-container-lowest rounded-xl w-full max-w-2xl max-h-[921px] overflow-y-auto shadow-[0_40px_80px_rgba(0,0,0,0.2)] border border-white/50 relative">
+<!-- Modal Header -->
+<div class="sticky top-0 bg-surface-container-lowest/90 backdrop-blur-md px-lg py-md border-b border-surface-variant flex justify-between items-center z-10">
+<h2 class="font-h2 text-h2 text-primary">แก้ไขโปรโมชั่น</h2>
+<button class="w-8 h-8 flex items-center justify-center rounded-full text-outline hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-lg space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Title -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">ชื่อโปรโมชั่น</label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" type="text" value="โบนัสสมาชิกใหม่"/>
+</div>
+<!-- Code -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">รหัสโปรโมชั่น <span class="text-outline text-xs">(ไม่บังคับ)</span></label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] uppercase placeholder-slate-400" type="text" value="WELCOME100"/>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">รายละเอียด</label>
+<textarea class="w-full bg-[#f1f5f9] border-transparent rounded-DEFAULT px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] resize-none" rows="3">โบนัส 100% สำหรับการฝากครั้งแรกของสมาชิกใหม่ โบนัสสูงสุด 5,000 บาท</textarea>
+</div>
+<div class="h-px bg-surface-variant w-full"></div>
+<!-- Financials -->
+<h3 class="font-h3 text-h3 text-on-background mb-4">กฎ &amp; ขีดจำกัด</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Type/Rate -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">อัตราโบนัส (%)</label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" type="number" value="100"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">จำนวนเงินคงที่ (฿)</label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" placeholder="เว้นว่างหากเป็น %" type="number"/>
+</div>
+<!-- Turnover -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">ตัวคูณเทิร์นโอเวอร์</label>
+<div class="relative">
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full pl-4 pr-10 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" type="number" value="20"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline font-medium">x</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Min Deposit -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">ฝากขั้นต่ำ (฿)</label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" type="number" value="300"/>
+</div>
+<!-- Max Bonus -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">โบนัสสูงสุด (฿)</label>
+<input class="w-full bg-[#f1f5f9] border-transparent rounded-full px-4 py-3 text-on-surface focus:border-primary focus:ring-0 focus:bg-white transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]" type="number" value="5000"/>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="sticky bottom-0 bg-surface-container-lowest/90 backdrop-blur-md px-lg py-md border-t border-surface-variant flex justify-end gap-4 z-10">
+<button class="font-button text-button px-6 py-2.5 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                        ยกเลิก
+                    </button>
+<button class="bg-primary text-on-primary font-button text-button px-8 py-2.5 rounded-full hover:scale-[1.02] transition-transform duration-200 shadow-md">
+                        บันทึกการเปลี่ยนแปลง
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
